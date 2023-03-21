@@ -14,54 +14,14 @@ ISTIO资源对象图解
 部署`v2`版本的`catalog`服务
 
 ```
-# cat services/catalog/kubernetes/catalog-deployment-v2.yaml
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    app: catalog
-    version: v2
-  name: catalog-v2
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: catalog
-      version: v2
-  template:
-    metadata:
-      labels:
-        app: catalog
-        version: v2
-    spec:
-      containers:
-      - env:
-        - name: KUBERNETES_NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
-        - name: SHOW_IMAGE
-          value: "true"
-        image: istioinaction/catalog:latest
-        imagePullPolicy: IfNotPresent
-        name: catalog
-        ports:
-        - containerPort: 3000
-          name: http
-          protocol: TCP
-        securityContext:
-          privileged: false
-```
-
-```
-# kubectl apply -f services/catalog/kubernetes/catalog-deployment-v2.yaml
+# kubectl apply -f catalog-deployment-v2.yaml
 ```
 
 通过`DestinationRule`声明`catalog`服务的版本
 
 ```
-# cat ch2/catalog-destinationrule.yaml
+# cat catalog-destinationrule.yaml
+
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
@@ -90,13 +50,14 @@ webapp-8dc87795-sqlzk         2/2     Running   0          3h59m   app=webapp,po
 应用配置
 
 ```
-# kubectl apply -f ch2/catalog-destinationrule.yaml
+# kubectl apply -f catalog-destinationrule.yaml
 ```
 
 针对`catalog`服务配置，带有`x-dark-launch: "v2"`的请求头将会路由到`v2`版本，其它默认路由到`v1`版本
 
 ```
-# cat ch2/catalog-virtualservice-dark-v2.yaml
+# cat catalog-virtualservice-dark-v2.yaml
+
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
@@ -122,7 +83,7 @@ spec:
 应用路由策略
 
 ```
-# kubectl apply -f ch2/catalog-virtualservice-dark-v2.yaml
+# kubectl apply -f catalog-virtualservice-dark-v2.yaml
 ```
 
 访问`v2`版本`catalog`服务,`v2`比`v1`版本多了一个字段`"imageUrl"`
