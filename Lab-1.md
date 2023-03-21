@@ -13,7 +13,7 @@
 # export PATH="$PATH:/root/istio-1.17.1/bin"
 ```
 
-获取OKE集群的访问配置
+获取自己所创建的OKE集群的访问配置
 
 ```
 # oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.ap-tokyo-1.XXXXX --file $HOME/.kube/config --region ap-tokyo-1 --token-version 2.0.0  --kube-endpoint PUBLIC_ENDPOINT
