@@ -159,3 +159,15 @@ catalog-release   Succeeded     0        2023-03-13T10:58:06Z
 [{"id":1,"color":"amber","department":"Eyewear","name":"Elinor Glasses","price":"282.00","imageUrl":"http://lorempixel.com/640/480"},{"id":2,"color":"cyan","department":"Clothing","name":"Atlas Shirt","price":"127.00","imageUrl":"http://lorempixel.com/640/480"},{"id":3,"color":"teal","department":"Clothing","name":"Small Metal Shoes","price":"232.00","imageUrl":"http://lorempixel.com/640/480"},{"id":4,"color":"red","department":"Watches","name":"Red Dragon Watch","price":"232.00","imageUrl":"http://lorempixel.com/640/480"}]
 
 ```
+
+### 4. 环境清理
+
+```
+# kubectl delete canary catalog-release
+# kubectl delete deploy catalog
+# kubectl apply -f catalog-svc.yaml
+# kubectl apply -f catalog-deployment.yaml
+# kubectl apply -f catalog-deployment-v2.yaml
+# kubectl apply -f catalog-dest-rule.yaml
+# helm uninstall flagger -n istio-system
+```
