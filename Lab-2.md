@@ -129,5 +129,5 @@ http.8080     webapp.istioinaction.io         /*                     webapp-virt
 ### 5. 环境清理
 
 ```
-# kubectl delete deployment,svc,gateway,virtualservice,destinationrule --all -n istioinaction
+保留环境，Lab-3继续使用
 ```
