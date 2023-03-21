@@ -1,8 +1,11 @@
 ## 流量路由
 
-实际生产中，会遇到这样的情况，新用户新版本(v2)，老用户老版本(v1)的情况。
+在新版本软件上线时，有诸多策略，如蓝绿部署、灰度发布、金丝雀发布等，在Istio中，可以通过流量路由功能来实现这些上线策略。
 
-这里就需要使用`istio`流量路由功能， 精准地控制哪些流量进入v1，哪些请求进入 v2
+![image](https://user-images.githubusercontent.com/4653664/226556377-75362ad1-9563-4db8-9e34-c4868793c681.png)
+
+
+ISTIO资源对象图解
 
 
 ![image](https://user-images.githubusercontent.com/4653664/223953387-ef9f1cff-fb0a-4d2f-b4e2-cfa62f21f540.png)
