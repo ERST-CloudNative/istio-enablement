@@ -167,7 +167,6 @@ catalog-release   Succeeded     0        2023-03-13T10:58:06Z
 # kubectl delete deploy catalog
 # kubectl apply -f catalog-svc.yaml
 # kubectl apply -f catalog-deployment.yaml
-# kubectl apply -f catalog-deployment-v2.yaml
 # kubectl apply -f catalog-dest-rule.yaml
 # helm uninstall flagger -n istio-system
 ```
