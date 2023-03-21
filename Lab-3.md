@@ -136,5 +136,9 @@ spec:
 环境清理
 
 ```
-# kubectl delete deployment,svc,gateway,virtualservice,destinationrule --all -n istioinaction
+# kubectl delete vs catalog
+# kubectl delete deploy catalog-v2 
+# kubectl delete service catalog
+# kubectl delete destinationrule catalog
+
 ```
