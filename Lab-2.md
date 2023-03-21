@@ -125,3 +125,9 @@ http.8080     webapp.istioinaction.io         /*                     webapp-virt
 浏览器访问`webapp.istioinaction.io`
 
 ![image](https://user-images.githubusercontent.com/4653664/223926190-5b20eb4f-7c3c-4665-98d1-bb209586e28a.png)
+
+### 5. 环境清理
+
+```
+# kubectl delete deployment,svc,gateway,virtualservice,destinationrule --all -n istioinaction
+```
