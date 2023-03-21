@@ -63,7 +63,7 @@ pod "dummy" deleted
 应用相关配置
 
 ```
-# kubectl apply -f grafana-gateway.yaml -f prometheus-gateway.yaml -f kiali-gateway.yaml -f jaeger-gateway.yaml
+# kubectl apply -f grafana-gateway.yaml -f prometheus-gateway.yaml -f kiali-gateway.yaml -f jaeger-gateway.yaml -f webapp-gateway.yaml
 ```
 
 通过istio入口网关查看当前路由配置
