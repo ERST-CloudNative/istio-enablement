@@ -1,0 +1,32 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: jaeger-gateway
+  namespace: istio-system
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "jaeger.istioinaction.io"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: jaeger-virtualservice
+  namespace: istio-system
+spec:
+  hosts:
+  - "jaeger.istioinaction.io"
+  gateways:
+  - jaeger-gateway
+  http:
+  - route:
+    - destination:
+        host: tracing
+        port:
+          number: 80
