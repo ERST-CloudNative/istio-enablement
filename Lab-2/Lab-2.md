@@ -7,6 +7,7 @@
 ```
 # kubectl create namespace istioinaction
 ```
+
 设置上下文，即当前后续操作会在`istioinaction` `namespace`下进行
 
 ```
