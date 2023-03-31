@@ -4,6 +4,7 @@
 
 这里通过脚本实现对catalog服务注入`500`故障
 
+
 ```
 # cat chaos.sh
 
